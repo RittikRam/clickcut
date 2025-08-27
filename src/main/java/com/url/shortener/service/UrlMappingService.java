@@ -31,7 +31,7 @@ public class UrlMappingService {
         urlMappingDto.setId(urlMapping.getId());
         urlMappingDto.setOriginalUrl(urlMapping.getOriginalUrl());
         urlMappingDto.setShortUrl(urlMapping.getShortUrl());
-        urlMappingDto.setCreatedDate(urlMapping.getCreatedDate());;
+        urlMappingDto.setCreatedDate(urlMapping.getCreatedDate());
         urlMappingDto.setUsername(urlMapping.getUser().getUsername());
         urlMappingDto.setClickCount(urlMapping.getClickCount());
         return urlMappingDto;
