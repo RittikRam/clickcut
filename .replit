@@ -36,3 +36,7 @@ externalPort = 8080
 [[ports]]
 localPort = 33103
 externalPort = 80
+
+[deployment]
+deploymentTarget = "vm"
+run = ["./mvnw", "spring-boot:run"]
