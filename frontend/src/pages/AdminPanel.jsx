@@ -48,7 +48,7 @@ const AdminPanel = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -222,15 +222,15 @@ const AdminPanel = () => {
             <h3 className="text-lg font-medium text-gray-900">Security Settings</h3>
             <div className="space-y-3">
               <label className="flex items-center">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-600 focus:ring-primary-500" defaultChecked />
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" defaultChecked />
                 <span className="ml-2 text-sm text-gray-700">Enable rate limiting</span>
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-600 focus:ring-primary-500" defaultChecked />
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" defaultChecked />
                 <span className="ml-2 text-sm text-gray-700">Require email verification</span>
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-600 focus:ring-primary-500" />
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
                 <span className="ml-2 text-sm text-gray-700">Enable two-factor authentication</span>
               </label>
             </div>
@@ -239,15 +239,15 @@ const AdminPanel = () => {
             <h3 className="text-lg font-medium text-gray-900">URL Settings</h3>
             <div className="space-y-3">
               <label className="flex items-center">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-600 focus:ring-primary-500" defaultChecked />
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" defaultChecked />
                 <span className="ml-2 text-sm text-gray-700">Enable URL expiration</span>
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-600 focus:ring-primary-500" defaultChecked />
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" defaultChecked />
                 <span className="ml-2 text-sm text-gray-700">Scan URLs for malware</span>
               </label>
               <label className="flex items-center">
-                <input type="checkbox" className="rounded border-gray-300 text-primary-600 focus:ring-primary-500" />
+                <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
                 <span className="ml-2 text-sm text-gray-700">Allow custom short URLs</span>
               </label>
             </div>

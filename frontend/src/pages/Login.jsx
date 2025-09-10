@@ -48,7 +48,7 @@ const Login = () => {
         {/* Header */}
         <div className="text-center">
           <div className="flex justify-center items-center space-x-2 mb-4">
-            <Scissors className="h-12 w-12 text-primary-600" />
+            <Scissors className="h-12 w-12 text-blue-600" />
             <span className="text-3xl font-bold text-gray-900">ClickCut</span>
           </div>
           <h2 className="text-2xl font-semibold text-gray-900">Welcome back</h2>
@@ -130,7 +130,7 @@ const Login = () => {
               Don't have an account?{' '}
               <Link
                 to="/register"
-                className="font-medium text-primary-600 hover:text-primary-500"
+                className="font-medium text-blue-600 hover:text-blue-500"
               >
                 Sign up here
               </Link>

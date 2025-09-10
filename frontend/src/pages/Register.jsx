@@ -75,7 +75,7 @@ const Register = () => {
         {/* Header */}
         <div className="text-center">
           <div className="flex justify-center items-center space-x-2 mb-4">
-            <Scissors className="h-12 w-12 text-primary-600" />
+            <Scissors className="h-12 w-12 text-blue-600" />
             <span className="text-3xl font-bold text-gray-900">ClickCut</span>
           </div>
           <h2 className="text-2xl font-semibold text-gray-900">Create your account</h2>
@@ -221,7 +221,7 @@ const Register = () => {
               Already have an account?{' '}
               <Link
                 to="/login"
-                className="font-medium text-primary-600 hover:text-primary-500"
+                className="font-medium text-blue-600 hover:text-blue-500"
               >
                 Sign in here
               </Link>

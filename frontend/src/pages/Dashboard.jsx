@@ -78,7 +78,7 @@ const Dashboard = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -160,8 +160,8 @@ const Dashboard = () => {
                   <div className="flex-1 min-w-0">
                     {/* Short URL */}
                     <div className="flex items-center space-x-3 mb-2">
-                      <LinkIcon className="h-5 w-5 text-primary-600 flex-shrink-0" />
-                      <span className="text-lg font-medium text-primary-600">
+                      <LinkIcon className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                      <span className="text-lg font-medium text-blue-600">
                         /{url.shortUrl}
                       </span>
                       <button

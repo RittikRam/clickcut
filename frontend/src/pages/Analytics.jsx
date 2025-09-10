@@ -97,7 +97,7 @@ const Analytics = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -217,7 +217,7 @@ const Analytics = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-gray-700">Short URL:</span>
-              <span className="text-primary-600 font-medium">/{selectedUrlData.shortUrl}</span>
+              <span className="text-blue-600 font-medium">/{selectedUrlData.shortUrl}</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-gray-700">Original URL:</span>
@@ -264,7 +264,7 @@ const Analytics = () => {
                 <div key={click.id || index} className="p-4 hover:bg-gray-50">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                       <span className="text-sm text-gray-900">Click {analytics.length - index}</span>
                     </div>
                     <div className="flex items-center space-x-2 text-sm text-gray-500">
@@ -291,7 +291,7 @@ const Analytics = () => {
                 </span>
                 <div className="flex-1 bg-gray-200 rounded-full h-2">
                   <div
-                    className="bg-primary-600 h-2 rounded-full transition-all duration-300"
+                    className="bg-blue-600 h-2 rounded-full transition-all duration-300"
                     style={{ 
                       width: `${Math.max((clicks / Math.max(...Object.values(totalClicks))) * 100, 5)}%` 
                     }}
