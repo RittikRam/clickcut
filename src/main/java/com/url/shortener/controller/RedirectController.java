@@ -26,7 +26,7 @@ public class RedirectController {
             }
 
             HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.add("Location",targetUrl);
+            httpHeaders.add("Location",targetUrl);  
             return ResponseEntity.status(302).headers(httpHeaders).build();
         }else {
             return ResponseEntity.notFound().build();
