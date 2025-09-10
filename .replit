@@ -4,3 +4,31 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "URL Shortener API"
+
+[[workflows.workflow]]
+name = "URL Shortener API"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./mvnw spring-boot:run"
+waitForPort = 8080
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[ports]]
+localPort = 8080
+externalPort = 8080
