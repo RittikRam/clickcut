@@ -48,9 +48,35 @@ This is a Spring Boot URL shortener application that has been successfully confi
 - Production command: `./mvnw spring-boot:run`
 - No build step required (compiled at runtime)
 
+## Frontend Application
+- **Framework**: React 18 + Vite 5
+- **Styling**: Tailwind CSS with custom components
+- **Routing**: React Router with protected routes
+- **Authentication**: JWT-based with context management
+- **UI Components**: Lucide React icons, Headless UI
+- **Features**: Responsive design, modern login/register forms
+
+## Frontend Features
+- **Authentication**: Beautiful login and register forms with validation
+- **Dashboard**: URL creation and management interface
+- **Analytics**: Comprehensive URL analytics with charts and metrics
+- **Admin Panel**: User and system management (admin-only)
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Real-time Updates**: Live click tracking and statistics
+
+## Technical Architecture
+- **Frontend**: React + Vite running on port 5000
+- **Backend**: Spring Boot API running on port 8080
+- **Database**: PostgreSQL with auto-generated schema
+- **Authentication**: JWT tokens with automatic refresh
+- **Communication**: Axios-based API service layer
+
 ## Current Status
-✅ Fully functional and ready for use
+✅ Fully functional URL shortener with modern frontend
+✅ Backend API with JWT authentication
 ✅ Database connected and schema created
-✅ All API endpoints operational
-✅ Authentication system working
-✅ Deployment configured
+✅ Beautiful responsive React frontend
+✅ Admin panel for user management
+✅ Comprehensive analytics dashboard
+✅ Deployment configured for production
+✅ Both frontend and backend workflows running
