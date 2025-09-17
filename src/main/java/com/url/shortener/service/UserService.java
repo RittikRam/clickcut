@@ -9,6 +9,8 @@ import com.url.shortener.repository.PasswordResetTokenRepository;
 import com.url.shortener.repository.UserRepository;
 import com.url.shortener.security.jwt.JwtUtils;
 import lombok.AllArgsConstructor;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -28,6 +31,7 @@ public class UserService {
     private PasswordResetTokenRepository passwordResetTokenRepository;
     private AuthenticationManager authenticationManager;
     private JwtUtils jwtUtils;
+    private JavaMailSender mailSender;
 
     public User registerUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -57,11 +61,28 @@ public class UserService {
 
     public void createPasswordResetToken(String email) {
         User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+
+        // Check if a token already exists for the user and delete it
+        Optional<PasswordResetToken> existingToken = passwordResetTokenRepository.findByUserId(user.getId());
+        existingToken.ifPresent(passwordResetTokenRepository::delete);
+
         String token = UUID.randomUUID().toString();
         PasswordResetToken passwordResetToken = new PasswordResetToken(token, user);
         passwordResetTokenRepository.save(passwordResetToken);
-        // TODO: Implement email sending logic here
-        System.out.println("Password reset token for " + email + ": " + token);
+
+        sendPasswordResetEmail(user.getEmail(), token);
+    }
+
+    private void sendPasswordResetEmail(String email, String token) {
+        String resetUrl = "http://localhost:5000/reset-password?token=" + token;
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("rittik123998@gmail.com");
+        message.setTo(email);
+        message.setSubject("Password Reset Request");
+        message.setText("To reset your password, please click the link below:\n" + resetUrl);
+
+        mailSender.send(message);
     }
 
     public void resetPassword(String token, String newPassword) {

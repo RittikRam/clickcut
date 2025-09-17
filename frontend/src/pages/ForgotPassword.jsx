@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Scissors, AlertCircle, Mail, CheckCircle } from 'lucide-react';
+import { authAPI } from '../services/api'; // Import authAPI
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -14,19 +15,14 @@ const ForgotPassword = () => {
     setError('');
     setSuccess('');
 
-    // TODO: Implement the backend API call here
-    // try {
-    //   await api.post('/api/auth/forgot-password', { email });
-    //   setSuccess('A password reset link has been sent to your email address.');
-    // } catch (err) {
-    //   setError(err.response?.data?.message || 'Failed to send reset link.');
-    // }
-
-    // Simulate API call for now
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await authAPI.forgotPassword(email);
       setSuccess('A password reset link has been sent to your email address.');
-    }, 2000);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to send reset link.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -107,4 +103,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;  
+export default ForgotPassword;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Eye, EyeOff, Scissors, AlertCircle, CheckCircle } from 'lucide-react';
+import { authAPI } from '../services/api'; // Import authAPI
 
 const ResetPassword = () => {
   const [searchParams] = useSearchParams();
@@ -49,29 +50,17 @@ const ResetPassword = () => {
     setError('');
     setSuccess('');
 
-    // TODO: Implement the backend API call here
-    // try {
-    //   await api.post('/api/auth/reset-password', {
-    //     token,
-    //     newPassword: formData.password
-    //   });
-    //   setSuccess('Password has been reset successfully!');
-    //   setTimeout(() => {
-    //     navigate('/login');
-    //   }, 2000);
-    // } catch (err) {
-    //   setError(err.response?.data?.message || 'Failed to reset password. The token may be invalid or expired.');
-    //   setLoading(false);
-    // }
-
-    // Simulate API call for now
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await authAPI.resetPassword(token, formData.password);
       setSuccess('Password has been reset successfully!');
       setTimeout(() => {
         navigate('/login');
       }, 2000);
-    }, 2000);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to reset password. The token may be invalid or expired.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
