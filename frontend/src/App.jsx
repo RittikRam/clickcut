@@ -11,6 +11,8 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Analytics from './pages/Analytics';
 import AdminPanel from './pages/AdminPanel';
+import ForgotPassword from './pages/ForgotPassword.jsx';
+import ResetPassword from './pages/ResetPassword.jsx';
 
 // Loading component
 const LoadingScreen = () => (
@@ -38,6 +40,8 @@ const AppRoutes = () => {
         path="/register" 
         element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Register />} 
       />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       
       {/* Protected routes */}
       <Route

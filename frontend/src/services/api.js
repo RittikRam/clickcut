@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Get the backend domain from environment or use default
-const API_BASE_URL = import.meta.env.VITE_API_URL || `https://${import.meta.env.VITE_REPLIT_DEV_DOMAIN || 'localhost'}:8080`;
+const API_BASE_URL = import.meta.env.VITE_API_URL || `http://${import.meta.env.VITE_REPLIT_DEV_HOST || 'localhost'}:8080`;
 
 // Create axios instance
 const api = axios.create({
@@ -42,6 +42,9 @@ api.interceptors.response.use(
 export const authAPI = {
   register: (userData) => api.post('/api/auth/register', userData),
   login: (credentials) => api.post('/api/auth/login', credentials),
+  // New API calls for password reset
+  forgotPassword: (email) => api.post('/api/auth/forgot-password', { email }),
+  resetPassword: (token, newPassword) => api.post('/api/auth/reset-password', { token, newPassword }),
 };
 
 // URL Management APIs
